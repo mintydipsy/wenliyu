@@ -1,0 +1,272 @@
+body {
+  margin: 0;
+  font-family: Arial, "Times New Roman", Times, serif;
+  background-color: #fff;
+  overflow-x: hidden; /* prevent sideways scrollbars */
+}
+
+/* Container for center content */
+.page-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1; /* keep above backgrounds */
+}
+
+/* Fixed side banners */
+.side-banner {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 180px; /* adjust to your desired width */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  z-index: 0;
+}
+
+.side-banner.left {
+  left: 0;
+  background-image: url("images/leftside.png");
+}
+
+.side-banner.right {
+  right: 0;
+  background-image: url("images/rightside.png");
+}
+
+/* Main content wrapper (center) */
+.wrapper {
+  flex: 1;
+  max-width: 1080px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 180px; /* leave space for fixed banners */
+  z-index: 1;
+  position: relative;
+}
+
+/* Logo */
+.logo {
+  padding: 10px;
+}
+
+.logo img {
+  height: 80px;
+}
+
+/* Navigation tabs */
+.nav-links {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-bottom: -2px; /* overlap look */
+}
+
+.nav-links a {
+  flex: 1; /* each tab takes an equal share of the row */
+  text-align: center;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: blue;
+  font-size: clamp(0.85rem, 1.6vw, 1.2rem);
+  font-weight: bold;
+  border-radius: 12px 12px 0 0;
+  background-color: lightgray;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  background-color: darkgray;
+  color: white;
+}
+
+/* Active tab */
+.nav-links a.active {
+  background-color: white;
+  border-top: 4px solid blue;
+  color: black;
+}
+
+/* Content area */
+.content {
+  width: 100%;
+  background-color: white;
+  min-height: 2000px;
+  padding: 0 20px 20px; /* no top padding: intro sits right under the tabs */
+  box-sizing: border-box;
+}
+
+/* Intro row: text on the left, gif on the right */
+.intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.intro-text {
+  flex: 1;
+  min-width: 0; /* let the text shrink instead of pushing the gif out */
+}
+
+.intro-text h1 {
+  margin-top: 0;
+}
+
+.intro-gif {
+  flex: 0 0 auto;
+  width: clamp(140px, 24vw, 240px);
+  height: auto; /* keep the 1:1 aspect ratio */
+  border-radius: 12px;
+}
+
+/* "some things about me" — set apart from the intro block above */
+.about {
+  margin-top: 56px;
+}
+
+/* the "some things about me" line (direct child only, not the grid labels) */
+.about > p {
+  margin: 0 0 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* 2x2 grid of gifs */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 560px;
+}
+
+.about-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.about-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* they're all square, so no letterboxing */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Project gallery (work.html) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit; /* don't inherit the blue link color */
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  overflow: hidden; /* clips the thumb to the rounded corners */
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: blue;
+}
+
+.card-thumb {
+  aspect-ratio: 4 / 3;
+  background-color: #f2f2f2; /* placeholder until you add an image */
+}
+
+.card-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 14px 16px;
+}
+
+.card-body h2 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  color: blue;
+}
+
+.card-body p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Back link on the project pages */
+.back-link {
+  display: inline-block;
+  margin-top: 32px;
+  color: blue;
+  font-weight: bold;
+}
+
+/* Narrow windows: drop the side banners and reclaim their space */
+@media (max-width: 768px) {
+  .side-banner {
+    display: none;
+  }
+
+  .wrapper {
+    margin: 0;
+  }
+}
+
+/* Very narrow screens */
+@media (max-width: 420px) {
+  .nav-links {
+    gap: 6px;
+    padding: 0 10px;
+  }
+
+  .nav-links a {
+    padding: 15px 4px; /* three short labels still fit in one row */
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  /* stack the gif above the text instead of squeezing both */
+  .intro {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro-gif {
+    order: -1;
+    width: min(60vw, 240px);
+  }
+
+  /* one gif per row once two columns get too cramped */
+  .about-grid {
+    grid-template-columns: 1fr;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  /* one card per row too */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
