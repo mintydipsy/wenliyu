@@ -145,6 +145,11 @@ body {
   text-align: center;
 }
 
+/* keep stacked notes close together */
+.about > .resume-note + .resume-note {
+  margin-top: 8px;
+}
+
 /* 2x2 grids: the about-me gifs and the project cards share sizing */
 .about-grid,
 .card-grid {
