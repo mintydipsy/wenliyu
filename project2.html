@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Two</title>
+    <title>BatHat</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -11,22 +11,93 @@
       <div class="side-banner left"></div>
 
       <div class="wrapper">
-        <!-- Logo -->
         <div class="logo">
           <img src="images/cow.png" alt="Cow Logo" />
         </div>
 
-        <!-- Tabs -->
         <div class="nav-links">
           <a href="index.html">home</a>
           <a href="work.html" class="active">projects</a>
           <a href="links.html">contact</a>
         </div>
 
-        <!-- Content -->
         <div class="content">
-          <h1>project two</h1>
-          <p>write about this project here.</p>
+          <h1>BatHat</h1>
+          <p class="project-tagline">
+            wearable navigation aid for the visually impaired : jan- apr 2025
+          </p>
+
+          <!-- hero image -->
+          <img
+            src="images/bathat-original.jpg"
+            alt="The finished BatHat device"
+            class="project-hero project-hero-full"
+          />
+
+          <h2>Overview</h2>
+          <p>
+            Built for my cornerstone engineering class, where the theme was
+            biomimicry. Inspired by how bats use echolocation to navigate in the
+            dark, my team designed BatHat, a wearable that helps visually
+            impaired users detect obstacles that a traditional cane can miss.
+            The hat uses LiDAR to sense its surroundings and haptic vibrations
+            to alert the user in real time. We also developed a supplemental
+            program on a Raspberry Pi with a Pi Cam to execute API calls for
+            user location.
+          </p>
+
+          <h2>How it works</h2>
+          <p>
+            BatHat combines real-time obstacle sensing with directional haptic
+            feedback in a head-worn, 3D-printed package. A LiDAR sensor
+            continuously measures the distance to nearby objects, and an Arduino
+            nano microcontroller processes those readings live. The device has
+            five vibration motors positioned around the housing, so when an
+            obstacle comes within 500 mm, the motors facing its direction buzz
+            gives the user a rough sense of where the hazard is. The housing was
+            modeled in SolidWorks and 3D printed to sit comfortably on the head
+            for everyday wear.
+            <br />
+            Beyond obstacle detection, we added a Raspberry Pi with a Pi Cam for
+            location awareness. When the user presses a button, the camera
+            captures an image and sends it to a vision AI model (Gemini) with
+            the prompt "where am I?" — then a connected speaker reads the answer
+            aloud, describing the user's surroundings.
+          </p>
+
+          <!-- supporting images, side by side -->
+          <div class="project-images">
+            <figure>
+              <img src="images/soldiworks.gif" alt="SolidWorks housing model" />
+              <figcaption>SolidWorks housing design</figcaption>
+            </figure>
+            <figure>
+              <img src="images/circuit.jpg" alt="Internal wiring and sensors" />
+              <figcaption>Sensors and wiring schematic</figcaption>
+            </figure>
+          </div>
+
+          <h3>
+            Here's a video showcasing our design process and a little demo of
+            our project!
+          </h3>
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/7PZ3QnELnoU"
+              title="BatHat demo video"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
 
           <a class="back-link" href="work.html">&larr; back to projects</a>
         </div>

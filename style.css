@@ -176,7 +176,9 @@ body {
 .card {
   text-decoration: none;
   color: inherit; /* don't inherit the blue link color */
-  transition: transform 0.15s ease, border-color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .about-item img {
@@ -240,6 +242,11 @@ body {
   object-fit: cover;
 }
 
+/* tall phone photo: frame the sensors on the cap, not the brim below them */
+.card-thumb .bathat-thumb {
+  object-position: center 58%;
+}
+
 .card-body {
   padding: 14px 16px;
 }
@@ -254,6 +261,20 @@ body {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.5;
+}
+
+/* YouTube embeds on the project pages: full width, 16:9 */
+.video-embed {
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-embed iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Back link on the project pages */
@@ -307,6 +328,75 @@ body {
   /* one tile per row once two columns get too cramped */
   .about-grid,
   .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ---- Project detail pages ---- */
+.project-tagline {
+  margin: -6px 0 24px;
+  font-style: italic;
+  color: #555;
+}
+
+.content h2 {
+  margin: 32px 0 8px;
+  font-size: 1.3rem;
+  color: blue;
+}
+
+.content p {
+  line-height: 1.6;
+}
+
+.project-hero {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid lightgray;
+  margin: 8px 0;
+}
+
+/* for squarer photos: show the whole image, centered, instead of
+   cropping it into the wide banner */
+.project-hero-full {
+  width: auto;
+  max-width: 100%;
+  margin: 8px auto;
+}
+
+/* supporting images side by side, stacked on narrow screens */
+.project-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.project-images figure {
+  margin: 0;
+}
+
+.project-images img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* same box for both so they line up */
+  object-fit: contain; /* show the whole image, don't crop the schematic */
+  background: white;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+}
+
+.project-images figcaption {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .project-images {
     grid-template-columns: 1fr;
   }
 }
