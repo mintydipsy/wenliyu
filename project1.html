@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project One</title>
+    <title>SpotiPi</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -11,22 +11,99 @@
       <div class="side-banner left"></div>
 
       <div class="wrapper">
-        <!-- Logo -->
         <div class="logo">
           <img src="images/cow.png" alt="Cow Logo" />
         </div>
 
-        <!-- Tabs -->
         <div class="nav-links">
           <a href="index.html">home</a>
           <a href="work.html" class="active">projects</a>
           <a href="links.html">contact</a>
         </div>
 
-        <!-- Content -->
         <div class="content">
-          <h1>project one</h1>
-          <p>write about this project here.</p>
+          <h1>SpotiPi</h1>
+          <p class="project-tagline">
+            Raspberry Pi music player · Sept. 2026 – Present
+          </p>
+
+          <!-- hero image -->
+          <img
+            src="images/barebones.jpeg"
+            alt="SpotiPi build"
+            class="project-hero spotipi-hero"
+          />
+
+          <h2>Overview</h2>
+          <p>
+            I wanted a phone-free way to listen to music, so I started building
+            SpotiPi. It is a custom music player that runs on a Raspberry Pi,
+            connects to the Spotify API for streaming and playback, and uses a
+            Python interface to control your music. The whole system sits inside
+            a 3D-printed enclosure I designed in SolidWorks. The project is
+            still in progress, so here’s where it stands and what’s left to
+            build.
+          </p>
+
+          <h2>How it works</h2>
+          <p>
+            SpotiPi pairs a Raspberry Pi with the Spotify API to stream and
+            control music in a compact, 3D-printed package. A Python program
+            running on the Pi handles the connection to Spotify, including
+            account authentication, accessing the user's library, and managing
+            playback. Physical buttons connected to the Pi's GPIO pins let the
+            user play and pause, skip tracks, and adjust the volume, with audio
+            output through a 3.5 mm jack. The interface is intentionally
+            minimal, with no screen to stare at, so the user can stay focused on
+            whatever they're doing instead of reaching for their phone.
+            <br />
+            The enclosure is being designed in SolidWorks to house the Pi,
+            buttons, and wiring in a portable, pocket-sized form, and will be 3D
+            printed once the design is finalized.
+          </p>
+
+          <!-- supporting images, side by side -->
+          <div class="project-images">
+            <figure>
+              <img
+                src="images/spotipi cad model.jpg"
+                alt="In progress Solidworks model of the enclosure"
+              />
+              <figcaption>
+                In progress Solidworks model of the enclosure
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="images/circuit.jpg" alt="Raspberry Pi wiring" />
+              <figcaption>Raspberry Pi and wiring in real life</figcaption>
+            </figure>
+          </div>
+          <h2>Tools &amp; tech</h2>
+          <p>Raspberry Pi · Python · Spotify API · SolidWorks · 3D printing</p>
+
+          <h2>What's done</h2>
+          <ul class="contributions">
+            <li>Got Spotify API streaming working through the Pi</li>
+            <li>Built the Python playback controls and UI</li>
+            <li>Wired a working circuit with all components functioning</li>
+          </ul>
+
+          <h2>Next steps</h2>
+          <ul class="contributions">
+            <li>Finish modeling the enclosure and print it</li>
+            <li>Tidy and secure the wiring to fit inside the enclosure</li>
+            <li>Add a battery to make it portable</li>
+          </ul>
+
+          <h2>What I learned</h2>
+          <p>
+            The biggest thing this project has taught me is how to debug
+            hardware when nothing works at first — tracing a problem through the
+            wiring, code, and connections one piece at a time instead of
+            guessing. Getting the circuit fully functional took patience and a
+            lot of trial and error, and sticking with it is what got everything
+            working.
+          </p>
 
           <a class="back-link" href="work.html">&larr; back to projects</a>
         </div>
