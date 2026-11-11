@@ -208,17 +208,6 @@ body {
   visibility: hidden;
 }
 
-/* the wrapper is now the flex item, so it takes over the gif's layout role */
-.intro .gif-hover {
-  flex: 0 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.intro .gif-hover .intro-gif {
-  display: block;
-}
-
 .about-item span {
   padding: 14px 16px;
   text-align: center;
@@ -317,11 +306,8 @@ body {
     align-items: center;
   }
 
-  .intro .gif-hover {
-    order: -1;
-  }
-
   .intro-gif {
+    order: -1;
     width: min(60vw, 240px);
   }
 

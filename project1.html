@@ -52,14 +52,13 @@
             running on the Pi handles the connection to Spotify, including
             account authentication, accessing the user's library, and managing
             playback. Physical buttons connected to the Pi's GPIO pins let the
-            user play and pause, skip tracks, and adjust the volume, with audio
-            output through a 3.5 mm jack. The interface is intentionally
-            minimal, with no screen to stare at, so the user can stay focused on
-            whatever they're doing instead of reaching for their phone.
-            <br />
-            The enclosure is being designed in SolidWorks to house the Pi,
-            buttons, and wiring in a portable, pocket-sized form, and will be 3D
-            printed once the design is finalized.
+            user play and pause, skip tracks, and adjust the volume. Since the
+            Zero 2 W has no built-in audio output, sound is routed through a
+            DAC/amp board that provides a 3.5 mm jack.
+            <br />The enclosure is being designed in SolidWorks to house the Pi,
+            buttons, and wiring in a portable, pocket-sized form. The design is
+            based on a tin can, with only the lid being 3D printed to reduce
+            material use and make the project more sustainable.
           </p>
 
           <!-- supporting images, side by side -->
@@ -74,8 +73,8 @@
               </figcaption>
             </figure>
             <figure>
-              <img src="images/circuit.jpg" alt="Raspberry Pi wiring" />
-              <figcaption>Raspberry Pi and wiring in real life</figcaption>
+              <img src="images/circuit spotify .png" alt="Raspberry Pi wiring" />
+              <figcaption>Raspberry Pi and wiring modeled in Cirkit</figcaption>
             </figure>
           </div>
           <h2>Tools &amp; tech</h2>
@@ -94,6 +93,27 @@
             <li>Tidy and secure the wiring to fit inside the enclosure</li>
             <li>Add a battery to make it portable</li>
           </ul>
+          <h2>Issues faced</h2>
+          <p>
+            To keep costs low, I set a design constraint to use mostly readily
+            available materials. This led to some of the more interesting
+            workarounds in the project.
+          </p>
+          <p>
+            The first issue I ran into was with the operating system. The
+            current Raspberry Pi OS images wouldn't flash and boot properly with
+            the screen I was using, so I dug through older releases until I
+            found a discontinued version that was compatible. After that, I was
+            finally able to get the Pi up and running.
+          </p>
+          <p>
+            The second issue was audio. I was working with a Raspberry Pi Zero 2
+            W, which has no built-in audio output, meaning there was no 3.5 mm
+            jack to plug into. Rather than switching to a different board, I
+            added a DAC/amp board to handle the digital-to-analog conversion and
+            provide a 3.5 mm audio output. This allowed me to keep the Pi I
+            already had while maintaining the project's small footprint.
+          </p>
 
           <h2>What I learned</h2>
           <p>
@@ -102,8 +122,7 @@
             guessing at the problem, I learned to trace it through the wiring,
             code, and connections one piece at a time. Getting everything to
             work took a lot of trial and error, but it taught me to be patient
-            and keep working through a problem even when the first few solutions
-            don't work.
+            and keep working through a problem.
           </p>
 
           <a class="back-link" href="work.html">&larr; back to projects</a>

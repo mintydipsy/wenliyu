@@ -1,6 +1,6 @@
 // GIFs can't be paused, so each one gets a canvas laid over it showing its
 // first frame. Hovering hides the canvas and restarts the gif from the top.
-document.querySelectorAll('img[src$=".gif"]').forEach((img) => {
+document.querySelectorAll('img[src$=".gif"]:not(.intro-gif)').forEach((img) => {
   const wrap = document.createElement("span");
   wrap.className = "gif-hover";
   img.replaceWith(wrap);

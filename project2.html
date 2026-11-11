@@ -39,11 +39,10 @@
             Built for my cornerstone engineering class, where the theme was
             biomimicry. Inspired by how bats use echolocation to navigate in the
             dark, my team designed BatHat, a wearable that helps visually
-            impaired users detect obstacles  a traditional cane can miss.
-            The hat uses LiDAR to sense its surroundings and haptic vibrations
-            to alert the user in real time. We also developed a supplemental
-            program on a Raspberry Pi with a Pi Cam to execute API calls for
-            user location.
+            impaired users detect obstacles a traditional cane can miss. The hat
+            uses LiDAR to sense its surroundings and haptic vibrations to alert
+            the user in real time. We also developed a supplemental program on a
+            Raspberry Pi with a Pi Cam to execute API calls for user location.
           </p>
 
           <h2>How it works</h2>
@@ -61,8 +60,8 @@
             Beyond obstacle detection, we added a Raspberry Pi with a Pi Cam for
             location awareness. When the user presses a button, the camera
             captures an image and sends it to a vision AI model (Gemini) with
-            the prompt "where am I?" — then a connected speaker reads the answer
-            aloud, describing the user's surroundings.
+            the prompt "where am I?" &mdash; then a connected speaker reads the
+            answer aloud, describing the user's surroundings.
           </p>
 
           <!-- supporting images, side by side -->
@@ -76,6 +75,35 @@
               <figcaption>Sensors and wiring schematic</figcaption>
             </figure>
           </div>
+
+          <h2>Design decisions &amp; challenges</h2>
+          <p>
+            We chose haptic feedback over audio cues to avoid adding unnecessary
+            noise to the user's environment. Visually impaired users often rely
+            on ambient sounds to navigate their surroundings, so adding beeps
+            could interfere with the sounds they depend on. We used five motors
+            instead of one to make the feedback directional, allowing users to
+            identify where an obstacle is located.
+          </p>
+          <p>
+            The hardest part was designing the enclosure. Early on, the LiDAR
+            kept throwing false signals and detecting obstacles that weren't
+            actually there. Fixing this was an iterative process. We first
+            traced the issue to the housing: the walls were sitting within the
+            sensor's field of view, so we adjusted the sensor's placement and
+            modified the enclosure to leave that area open. We then tuned the
+            500 mm distance threshold so it would only register objects within a
+            useful range. After a few rounds of adjustments, the false readings
+            decreased and the sensor became much more reliable.
+          </p>
+
+          <h2>Results</h2>
+          <p>
+            The final prototype reliably detected obstacles in real time and
+            communicated their direction through directional haptic feedback,
+            with the Pi Cam adding spoken location descriptions on demand. The
+            video below shows the design process and a demo of it working.
+          </p>
 
           <h2>My contributions</h2>
           <ul class="contributions">
